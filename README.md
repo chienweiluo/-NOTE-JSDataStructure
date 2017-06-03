@@ -24,43 +24,43 @@
     pop(){
         if(this.length === 0) return;  //如果是空的就什麼都不做
 
-        let lastIndex= this.length-1
-        let val= this.memory[lastIndex]
+        let lastIndex= this.length-1 //  [a,b,c,d] lastIndex為3
+        let val= this.memory[lastIndex]  //val= this.memory[lastIndex]為 d
 
-        delete this.memory[lastIndex]
-        this.length--
+        delete this.memory[lastIndex] // 刪除以最後一個數字為索引的值 //刪除d
+        this.length--  //長度減一
 
-        return val
-    }
+        return val //返回d
+     }
 
     shift(){
         if(this.length === 0) return;  //如果是空的就什麼都不做
 
-        let val= this.memory[0]
+        let val= this.memory[0]  //val等於第一個元素 [a,b,c,d] ->a
 
         for(let Index=0; Index < this.length; Index++){
-            this.memory[Index] = this.memory[Index+1]
-        }
+            this.memory[Index] = this.memory[Index+1] //以索引值+1取代原本的索引 [b,c,d]]
+        }
 
-        delete this.memory[0]
-        this.length--
+        delete this.memory[0] //刪除頭
+        this.length--  //長度減一
 
         return val
     }
 
 
     unshift(val){
-        let prev= val
+        let prev= val  //例 [a,b,c,d] 要在頭部插入 val= x --> [x,a,b,c,d]
 
-        for(let Index=0; Index< this.length; Index++){
-            let current= this.memory[Index]
-            this.memory[Index] =prev
-            prev=current
-        }
+        for(let Index=0; Index< this.length; Index++){ //遍歷這個數組
+            let current= this.memory[Index] //先以current當容器代表
+            this.memory[Index] =prev // 解釋第一次遍歷, this.memory[0] = x 換句話說是用x 取代了this.memory[0] 也就是原本的a
+                                             二        this.memory[1] = a            a(prev)                          b 
+            prev=current //用current 取代prev
+        }
 
-        this.memory[this.length]= prev
-        this.length++;
-
+        this.memory[this.length]= prev //this.memory[4] 代表第五個元素為剛剛遍歷完的最後一個prev 也就是d
+        this.length++; // 長度加一
 
     }
 
