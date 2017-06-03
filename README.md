@@ -1,6 +1,18 @@
 # JSDataStructure
-用js實現資料結構系列, 其實也是筆記, 但是就是想獨立一個repo! 哈哈
 
-詳見各branch
+>list <br/>
+>A list is a representation of an ordered sequence of value where the same value may appear many times.
 
-reference:　[itsy-bitsy-data-structures.js](https://github.com/thejameskyle/itsy-bitsy-data-structures/blob/master/itsy-bitsy-data-structures.js), [luke_lin的js](http://www.cnblogs.com/webFrontDev/p/3657771.html),[wuzhiwei](http://wuzhiwei.net/ds_app_linkedlist/)
+constructor(){
+    this.memory=[]
+    this.length=0
+    //製作容器
+}
+
+get(Address){
+    return this.memory[Address];
+}
+
+push(val){
+    
+}
