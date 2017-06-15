@@ -1,6 +1,93 @@
 # JSDataStructure
-用js實現資料結構系列, 其實也是筆記, 但是就是想獨立一個repo! 
 
-詳見各branch
+## QUEUE/PRIORITY QUEUE
 
-reference:　[itsy-bitsy-data-structures.js](https://github.com/thejameskyle/itsy-bitsy-data-structures/blob/master/itsy-bitsy-data-structures.js), [luke_lin的js](http://www.cnblogs.com/webFrontDev/p/3657771.html),[wuzhiwei](http://wuzhiwei.net/ds_app_linkedlist/),[TB技術共筆](http://blog.techbridge.cc/)
+*First in First Out
+
+*增刪元素發生在不同端
+
+*priority queue: 不一定遵循FIFO, e.g VIP先處理, 優先值如果一樣就照順序
+
+
+### QUEUE 佇列
+
+    function Queue(){
+        q =[]
+        this.enqueue = function(el){
+            q.push(el)
+        }
+
+        this.dequeue = function(){
+            return q.shift()
+        }
+
+        this.front = function(){
+            return q[0]
+        }
+
+        this.isEmpty = function(){
+            if(q.length ==0){
+            return true}
+            else{
+            return false}
+        }
+
+        this.size = function(){
+            return q.length
+        }
+
+        this.print = function(){
+            console.log(q.toString())
+        }
+    }
+
+### Priority Queue 優先級佇列
+
+    function PriorityQueue(){
+        let q = []
+        function QueueEl(el,priority){
+            this.el = el
+            this.priority = priority
+        }
+
+        this.enqueue = function(item, pri){
+            const queueElement = new QueueEl(el,pri)
+
+            if(this.isEmpty){
+                q.push(queueElement);
+            }
+            else{
+                let add = false
+                for(i=0, i<this.length, i++){
+                    if(queueElement.priority <q[i]priority ){
+                        q.splice(i, 0, queueElement)
+                    }
+                    add = true
+                }
+
+                if(!add){
+                    q.push(queueElement)
+                }
+            }
+        }
+
+        this.dequeue = function(){
+            return q.shift()
+        }
+
+        this.front = function(){
+            return q[0]
+        }
+
+        this.isEmpty = function(){
+            return q.length ==0
+        }
+
+        this.size = function(){
+            return q.length
+        }
+
+        this.print = function(){
+            console.log(JSON.Stringfy(q)) 
+        }
+    }
